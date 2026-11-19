@@ -433,7 +433,7 @@ const READY = (async () => {
   renderRecent();
   if (!$("result").classList.contains("hide") && lastShown) showResult(lastShown.r, lastShown.src);
   if (!$("history").classList.contains("hide")) openHistory();
-  MODEL = await tf.loadLayersModel("model/model.json");
+  MODEL = await tf.loadLayersModel("model.json");
   tf.tidy(() => { MODEL.predict(tf.zeros([1, 224, 224, 3])).dataSync(); });
 })().catch(e => { console.error(e); });
 
