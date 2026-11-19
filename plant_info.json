@@ -1,0 +1,233 @@
+{
+  "Snake_Plants": {
+    "name": "Snake Plant",
+    "scientific_name": "Dracaena trifasciata (formerly Sansevieria trifasciata)",
+    "height": "About 60 cm to 1.2 m indoors; can exceed 1.5 m outdoors",
+    "dangerous": true,
+    "danger_note": "Mildly toxic to pets and people if eaten (may cause nausea, vomiting, drooling). Keep away from pets and small children.",
+    "watering": "Every 2 to 3 weeks. Let the soil dry out completely between waterings.",
+    "placement": [
+      "Indoor: yes (low to bright light)",
+      "Outdoor: yes (partial shade)",
+      "Backyard: yes (in pots or shaded spots)"
+    ],
+    "height_tl": "Mga 60 cm hanggang 1.2 m sa loob ng bahay; maaaring lumampas sa 1.5 m sa labas",
+    "danger_note_tl": "Bahagyang nakalalason sa mga alagang hayop at tao kapag nakain (maaaring magdulot ng pagduduwal, pagsusuka, at labis na paglalaway). Ilayo sa mga alagang hayop at maliliit na bata.",
+    "watering_tl": "Tuwing 2 hanggang 3 linggo. Hayaang tuluyang matuyo ang lupa bago diligan muli.",
+    "placement_tl": [
+      "Loob ng bahay: oo (mahina hanggang maliwanag na ilaw)",
+      "Labas: oo (bahagyang lilim)",
+      "Bakuran: oo (sa paso o may lilim na lugar)"
+    ]
+  },
+  "welcome_plant": {
+    "name": "Welcome Plant",
+    "scientific_name": "Syngonium podophyllum",
+    "height": "About 30 cm as a small plant; a climbing vine that can reach 1.5 m or more with support",
+    "dangerous": true,
+    "danger_note": "Contains calcium oxalate crystals. Chewing or eating it can irritate the mouth and stomach; the sap may irritate skin.",
+    "watering": "About once a week. Water when the top 2 to 3 cm of soil feels dry.",
+    "placement": [
+      "Indoor: yes (bright indirect light)",
+      "Outdoor: yes (shaded area only)",
+      "Backyard: yes (shaded spots only)"
+    ],
+    "height_tl": "Mga 30 cm kapag maliit; isang baging na maaaring umabot ng 1.5 m o higit pa kung may sandalan",
+    "danger_note_tl": "May calcium oxalate crystals. Ang pagnguya o pagkain nito ay maaaring makairita sa bibig at tiyan; ang katas ay maaaring makairita sa balat.",
+    "watering_tl": "Mga isang beses sa isang linggo. Diligan kapag tuyo na ang itaas na 2 hanggang 3 cm ng lupa.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na hindi direktang ilaw)",
+      "Labas: oo (may lilim lang)",
+      "Bakuran: oo (sa may lilim lang)"
+    ]
+  },
+  "Dumb_Cane": {
+    "name": "Dumb Cane",
+    "scientific_name": "Dieffenbachia spp.",
+    "height": "About 60 cm to 1.8 m",
+    "dangerous": true,
+    "danger_note": "Contains calcium oxalate crystals. Eating it can cause painful mouth and throat irritation and swelling. Keep away from pets and children.",
+    "watering": "About once a week. Water when the top 2 to 3 cm of soil is dry; avoid soggy soil.",
+    "placement": [
+      "Indoor: yes (bright indirect light)",
+      "Outdoor: yes (shaded area only)",
+      "Backyard: yes (shaded spots only)"
+    ],
+    "height_tl": "Mga 60 cm hanggang 1.8 m",
+    "danger_note_tl": "May calcium oxalate crystals. Ang pagkain nito ay maaaring magdulot ng masakit na iritasyon at pamamaga ng bibig at lalamunan. Ilayo sa mga alagang hayop at bata.",
+    "watering_tl": "Mga isang beses sa isang linggo. Diligan kapag tuyo na ang itaas na 2 hanggang 3 cm ng lupa; iwasan ang basang-basang lupa.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na hindi direktang ilaw)",
+      "Labas: oo (may lilim lang)",
+      "Bakuran: oo (sa may lilim lang)"
+    ]
+  },
+  "Mayana": {
+    "name": "Mayana",
+    "scientific_name": "Coleus scutellarioides (also called Plectranthus scutellarioides or Solenostemon scutellarioides)",
+    "height": "About 50 cm to 1 m; some cultivars reach 2 m",
+    "dangerous": true,
+    "danger_note": "Considered mildly toxic to pets (dogs, cats) if eaten; may cause vomiting, diarrhea, or mouth irritation. Keep away from pets and small children.",
+    "watering": "Keep the soil lightly moist; water when the top of the soil starts to dry, about 2 to 3 times a week in hot weather.",
+    "placement": [
+      "Indoor: yes (needs bright light)",
+      "Outdoor: yes (morning sun or partial shade)",
+      "Backyard: yes (garden beds or pots)"
+    ],
+    "height_tl": "Mga 50 cm hanggang 1 m; may ilang uri na umaabot ng 2 m",
+    "danger_note_tl": "Itinuturing na bahagyang nakalalason sa mga alagang hayop (aso, pusa) kapag nakain; maaaring magdulot ng pagsusuka, pagtatae, o iritasyon sa bibig. Ilayo sa mga alagang hayop at maliliit na bata.",
+    "watering_tl": "Panatilihing bahagyang basa ang lupa; diligan kapag nagsisimula nang matuyo ang ibabaw, mga 2 hanggang 3 beses sa isang linggo kapag mainit ang panahon.",
+    "placement_tl": [
+      "Loob ng bahay: oo (kailangan ng maliwanag na ilaw)",
+      "Labas: oo (araw sa umaga o bahagyang lilim)",
+      "Bakuran: oo (sa taniman o paso)"
+    ]
+  },
+  "Rubber_Plant": {
+    "name": "Rubber Plant",
+    "scientific_name": "Ficus elastica",
+    "height": "About 1.5 to 3 m indoors; can grow into a large tree (10 m or more) outdoors",
+    "dangerous": true,
+    "danger_note": "The milky sap can irritate skin and mouth, and the plant is mildly toxic to pets if eaten. Wash hands after pruning.",
+    "watering": "Every 1 to 2 weeks. Water when the top 2 to 5 cm of soil is dry.",
+    "placement": [
+      "Indoor: yes (bright indirect light)",
+      "Outdoor: yes (can grow very large)",
+      "Backyard: yes (needs space; can become a large tree)"
+    ],
+    "height_tl": "Mga 1.5 hanggang 3 m sa loob ng bahay; maaaring lumaking malaking puno (10 m o higit pa) sa labas",
+    "danger_note_tl": "Ang gatas na katas ay maaaring makairita sa balat at bibig, at bahagyang nakalalason sa mga alagang hayop kapag nakain. Maghugas ng kamay pagkatapos magputol ng sanga.",
+    "watering_tl": "Tuwing 1 hanggang 2 linggo. Diligan kapag tuyo na ang itaas na 2 hanggang 5 cm ng lupa.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na hindi direktang ilaw)",
+      "Labas: oo (maaaring lumaking napakalaki)",
+      "Bakuran: oo (kailangan ng espasyo; maaaring maging malaking puno)"
+    ]
+  },
+  "Heart_of_Jesus": {
+    "name": "Heart of Jesus",
+    "scientific_name": "Caladium bicolor",
+    "height": "About 30 cm to 60 cm",
+    "dangerous": true,
+    "danger_note": "Contains calcium oxalate crystals. Eating it can cause mouth and throat irritation, drooling, and vomiting in people and pets. Keep away from pets and children.",
+    "watering": "Keep the soil evenly moist; water when the top of the soil is slightly dry, about 2 to 3 times a week in warm weather. It may go dormant in cool or dry conditions.",
+    "placement": [
+      "Indoor: yes (bright indirect light)",
+      "Outdoor: yes (shaded area only)",
+      "Backyard: yes (shaded spots only)"
+    ],
+    "height_tl": "Mga 30 cm hanggang 60 cm",
+    "danger_note_tl": "May calcium oxalate crystals. Ang pagkain nito ay maaaring magdulot ng iritasyon sa bibig at lalamunan, paglalaway, at pagsusuka sa tao at alagang hayop. Ilayo sa mga alagang hayop at bata.",
+    "watering_tl": "Panatilihing pantay ang basa ng lupa; diligan kapag medyo tuyo na ang ibabaw, mga 2 hanggang 3 beses sa isang linggo kapag mainit. Maaaring mag-dormant sa malamig o tuyong kondisyon.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na hindi direktang ilaw)",
+      "Labas: oo (may lilim lang)",
+      "Bakuran: oo (sa may lilim lang)"
+    ]
+  },
+  "Snake_Plant": {
+    "name": "Snake Plant",
+    "scientific_name": "Dracaena trifasciata (formerly Sansevieria trifasciata)",
+    "height": "About 60 cm to 1.2 m indoors; can exceed 1.5 m outdoors",
+    "dangerous": true,
+    "danger_note": "Mildly toxic to pets and people if eaten (may cause nausea, vomiting, drooling). Keep away from pets and small children.",
+    "watering": "Every 2 to 3 weeks. Let the soil dry out completely between waterings.",
+    "placement": [
+      "Indoor: yes (low to bright light)",
+      "Outdoor: yes (partial shade)",
+      "Backyard: yes (in pots or shaded spots)"
+    ],
+    "height_tl": "Mga 60 cm hanggang 1.2 m sa loob ng bahay; maaaring lumampas sa 1.5 m sa labas",
+    "danger_note_tl": "Bahagyang nakalalason sa mga alagang hayop at tao kapag nakain (maaaring magdulot ng pagduduwal, pagsusuka, at labis na paglalaway). Ilayo sa mga alagang hayop at maliliit na bata.",
+    "watering_tl": "Tuwing 2 hanggang 3 linggo. Hayaang tuluyang matuyo ang lupa bago diligan muli.",
+    "placement_tl": [
+      "Loob ng bahay: oo (mahina hanggang maliwanag na ilaw)",
+      "Labas: oo (bahagyang lilim)",
+      "Bakuran: oo (sa paso o may lilim na lugar)"
+    ]
+  },
+  "Boston_Fern": {
+    "name": "Boston Fern",
+    "scientific_name": "Nephrolepis exaltata",
+    "height": "About 40 cm to 90 cm; fronds can arch longer in hanging baskets",
+    "dangerous": false,
+    "danger_note": "Generally listed as non-toxic to cats, dogs, and people. Still, avoid letting pets or children eat any plant.",
+    "watering": "Keep the soil lightly moist; water when the top 1 to 2 cm feels dry, about 2 to 3 times a week. It likes humidity.",
+    "placement": [
+      "Indoor: yes (bright indirect light)",
+      "Outdoor: yes (shaded area only)",
+      "Backyard: yes (shaded spots or hanging baskets)"
+    ],
+    "height_tl": "Mga 40 cm hanggang 90 cm; maaaring humaba pa ang mga dahon kapag nakasabit",
+    "danger_note_tl": "Karaniwang itinuturing na hindi nakalalason sa pusa, aso, at tao. Gayunman, iwasang kainin ng mga alagang hayop o bata ang anumang halaman.",
+    "watering_tl": "Panatilihing bahagyang basa ang lupa; diligan kapag tuyo na ang itaas na 1 hanggang 2 cm, mga 2 hanggang 3 beses sa isang linggo. Gusto nito ng halumigmig.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na hindi direktang ilaw)",
+      "Labas: oo (may lilim lang)",
+      "Bakuran: oo (sa may lilim o nakasabit)"
+    ]
+  },
+  "Jade_Plant": {
+    "name": "Jade Plant",
+    "scientific_name": "Crassula ovata",
+    "height": "About 30 cm to 1 m indoors; can grow taller outdoors",
+    "dangerous": true,
+    "danger_note": "Toxic to dogs and cats if eaten (may cause vomiting, tiredness, and loss of coordination). Keep away from pets and small children.",
+    "watering": "Every 2 to 3 weeks. Let the soil dry out completely between waterings.",
+    "placement": [
+      "Indoor: yes (bright light)",
+      "Outdoor: yes (partial sun)",
+      "Backyard: yes (in pots)"
+    ],
+    "height_tl": "Mga 30 cm hanggang 1 m sa loob ng bahay; maaaring tumangkad pa sa labas",
+    "danger_note_tl": "Nakalalason sa aso at pusa kapag nakain (maaaring magdulot ng pagsusuka, panghihina, at pagkawala ng balanse). Ilayo sa mga alagang hayop at maliliit na bata.",
+    "watering_tl": "Tuwing 2 hanggang 3 linggo. Hayaang tuluyang matuyo ang lupa bago diligan muli.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na ilaw)",
+      "Labas: oo (bahagyang araw)",
+      "Bakuran: oo (sa paso)"
+    ]
+  },
+  "Monstera": {
+    "name": "Monstera",
+    "scientific_name": "Monstera deliciosa",
+    "height": "About 1 to 3 m indoors with support; much taller outdoors",
+    "dangerous": true,
+    "danger_note": "Contains calcium oxalate crystals. Eating it can irritate the mouth and throat and cause drooling and vomiting in people and pets. Keep away from pets and children.",
+    "watering": "Every 1 to 2 weeks. Water when the top 3 to 5 cm of soil is dry.",
+    "placement": [
+      "Indoor: yes (bright indirect light)",
+      "Outdoor: yes (shaded area only)",
+      "Backyard: yes (shaded spots, with support to climb)"
+    ],
+    "height_tl": "Mga 1 hanggang 3 m sa loob ng bahay kung may sandalan; mas matangkad pa sa labas",
+    "danger_note_tl": "May calcium oxalate crystals. Ang pagkain nito ay maaaring makairita sa bibig at lalamunan at magdulot ng paglalaway at pagsusuka sa tao at alagang hayop. Ilayo sa mga alagang hayop at bata.",
+    "watering_tl": "Tuwing 1 hanggang 2 linggo. Diligan kapag tuyo na ang itaas na 3 hanggang 5 cm ng lupa.",
+    "placement_tl": [
+      "Loob ng bahay: oo (maliwanag na hindi direktang ilaw)",
+      "Labas: oo (may lilim lang)",
+      "Bakuran: oo (sa may lilim, may masasandalan)"
+    ]
+  },
+  "Red_Button_Ginger": {
+    "name": "Red Button Ginger",
+    "scientific_name": "Costus woodsonii",
+    "height": "About 60 cm to 2 m",
+    "dangerous": true,
+    "danger_note": "Toxicity information is uncertain because sources disagree. Treat it as potentially harmful and keep pets and children from eating any part of it.",
+    "watering": "Keep the soil evenly moist; water about 2 to 3 times a week in warm weather. It likes humidity.",
+    "placement": [
+      "Indoor: possible (needs bright light and space)",
+      "Outdoor: yes (partial shade to morning sun)",
+      "Backyard: yes (garden beds or large pots)"
+    ],
+    "height_tl": "Mga 60 cm hanggang 2 m",
+    "danger_note_tl": "Hindi tiyak ang impormasyon tungkol sa toxicity dahil hindi nagkakasundo ang mga source. Ituring itong posibleng mapanganib at ilayo sa mga alagang hayop at bata ang anumang bahagi nito.",
+    "watering_tl": "Panatilihing pantay ang basa ng lupa; diligan mga 2 hanggang 3 beses sa isang linggo kapag mainit. Gusto nito ng halumigmig.",
+    "placement_tl": [
+      "Loob ng bahay: maaari (kailangan ng maliwanag na ilaw at espasyo)",
+      "Labas: oo (bahagyang lilim hanggang araw sa umaga)",
+      "Bakuran: oo (sa taniman o malaking paso)"
+    ]
+  }
+}

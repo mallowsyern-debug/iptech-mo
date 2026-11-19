@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>i-PTech MO</title>
+<meta name="theme-color" content="#2e7d32">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%23059669%22/%3E%3Cg%20transform%3D%22translate%283.6%203.6%29%20scale%28.7%29%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M3%208V5a2%202%200%200%201%202-2h3%22/%3E%3Cpath%20d%3D%22M16%203h3a2%202%200%200%201%202%202v3%22/%3E%3Cpath%20d%3D%22M21%2016v3a2%202%200%200%201-2%202h-3%22/%3E%3Cpath%20d%3D%22M8%2021H5a2%202%200%200%201-2-2v-3%22/%3E%3Cpath%20d%3D%22M8.5%2015.5C8.5%2011%2011%208.5%2015.5%208.5%2015.5%2013%2013%2015.5%208.5%2015.5z%22/%3E%3Cpath%20d%3D%22M8.5%2015.5L7%2017%22/%3E%3Cpath%20d%3D%22M8.5%2015.5L13%2011%22/%3E%3C/g%3E%3C/svg%3E">
+<script src="tf.min.js"></script>
+<script>try{var t=localStorage.getItem("iptech_theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+<style>
+:root{--bg:#eafaf1;--card:rgba(255,255,255,.72);--tx:#10261a;--mu:#587063;--item:rgba(16,185,129,.10);--bd:rgba(16,120,80,.16);--rd:#e11d48;--warn:rgba(225,29,72,.10);--g:#059669;--g2:#34d399;--sh:0 10px 30px rgba(5,150,105,.16)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06110b;--card:rgba(18,34,25,.68);--tx:#e9fbf1;--mu:#8fb3a0;--item:rgba(52,211,153,.10);--bd:rgba(52,211,153,.18);--rd:#fb7185;--warn:rgba(251,113,133,.12);--g:#34d399;--g2:#6ee7b7;--sh:0 10px 34px rgba(0,0,0,.55);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#06110b;--card:rgba(18,34,25,.68);--tx:#e9fbf1;--mu:#8fb3a0;--item:rgba(52,211,153,.10);--bd:rgba(52,211,153,.18);--rd:#fb7185;--warn:rgba(251,113,133,.12);--g:#34d399;--g2:#6ee7b7;--sh:0 10px 34px rgba(0,0,0,.55);color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-25%;z-index:-1;background:radial-gradient(circle at 20% 25%,rgba(52,211,153,.45),transparent 40%),radial-gradient(circle at 80% 15%,rgba(132,204,22,.30),transparent 38%),radial-gradient(circle at 60% 85%,rgba(20,184,166,.38),transparent 42%);filter:blur(30px);animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(-3%,-2%,0) scale(1)}to{transform:translate3d(3%,3%,0) scale(1.12)}}
+header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 18px;margin:10px 12px 0;border-radius:20px;background:var(--card);border:1px solid var(--bd);box-shadow:var(--sh);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.brand{font-size:22px;font-weight:900;letter-spacing:.3px;cursor:pointer;background:linear-gradient(90deg,#059669,#84cc16);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .ic{stroke:#059669}
+.hright{display:flex;gap:8px}
+.hbtn{background:var(--item);color:var(--g);border:1px solid var(--bd);border-radius:14px;padding:9px 13px;font-size:14px;font-weight:700;cursor:pointer}
+#themeBtn .ic{margin:0}
+main{max-width:480px;margin:0 auto;padding:20px 16px 48px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:26px;padding:24px;box-shadow:var(--sh);margin-bottom:18px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+h2{margin:0 0 6px;font-size:26px;font-weight:900;background:linear-gradient(90deg,var(--g),#84cc16);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mu{color:var(--mu);font-size:14px;line-height:1.5}
+.btn{position:relative;overflow:hidden;display:block;width:100%;padding:15px;margin-top:12px;border:0;border-radius:16px;font-size:16px;font-weight:700;cursor:pointer;color:#fff;background:linear-gradient(135deg,#059669,#10b981 55%,#84cc16);box-shadow:0 8px 22px rgba(16,185,129,.38);transition:transform .15s ease,box-shadow .2s ease}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg)}
+.btn.alt{background:var(--item);color:var(--g);border:2px solid var(--g);box-shadow:none}
+.btn.alt::after{display:none}
+.btn:disabled{background:#8fa59a;box-shadow:none;cursor:not-allowed}
+.btn:disabled::after{display:none}
+.btn:focus-visible,.hbtn:focus-visible,.iconbtn:focus-visible{outline:3px solid var(--g2);outline-offset:2px}
+.row{display:flex;gap:12px}
+.row .btn{flex:1;padding:26px 10px;margin-top:18px;border-radius:22px}
+.row .btn:first-child{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 8px 22px rgba(16,185,129,.38)}50%{box-shadow:0 8px 34px rgba(16,185,129,.75)}}
+.ic{width:1.15em;height:1.15em;vertical-align:-0.2em;margin-right:6px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic.fill{fill:currentColor}
+.row .btn [data-ic]{display:block}
+.row .btn .ic{display:block;margin:0 auto 8px;width:2.4em;height:2.4em}
+.scan{position:relative;overflow:hidden;border-radius:18px;margin-top:12px}
+img.pv,video{display:block;width:100%;max-height:340px;object-fit:contain;border-radius:18px;background:#000;margin-top:12px}
+.scan img.pv{margin-top:0}
+img.pv{background:var(--item)}
+.scan.on::after{content:"";position:absolute;left:0;right:0;height:4px;top:0;background:linear-gradient(90deg,transparent,#34d399,#a3e635,transparent);box-shadow:0 0 18px 6px rgba(52,211,153,.8);animation:sweep 1.4s ease-in-out infinite}
+@keyframes sweep{0%{top:0}50%{top:calc(100% - 4px)}100%{top:0}}
+.ring{width:116px;height:116px;border-radius:50%;margin:10px auto 2px;display:grid;place-items:center;background:conic-gradient(var(--g2) calc(var(--p)*1%),var(--bd) 0)}
+.ring span{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:var(--bg);font-size:24px;font-weight:900;color:var(--g)}
+.item{background:var(--item);border:1px solid var(--bd);border-left:4px solid var(--g);border-radius:14px;padding:12px 14px;margin-top:10px;font-size:15px;line-height:1.5}
+.item b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--g);margin-bottom:4px}
+.warn{background:var(--warn);border-left-color:var(--rd)}
+.warn b{color:var(--rd)}
+.sci{font-style:italic;color:var(--mu);margin-top:2px}
+.note{font-size:12px;color:var(--mu);margin-top:16px;line-height:1.5}
+.err{color:var(--rd);font-size:14px;margin-top:12px}
+.hist{display:flex;gap:12px;align-items:center;padding:12px 8px;border-bottom:1px solid var(--bd);border-radius:14px;cursor:pointer}
+.hist:hover{background:var(--item)}
+.hist img{width:60px;height:60px;object-fit:cover;border-radius:14px}
+.hist .t{flex:1}
+.iconbtn{background:none;border:0;font-size:20px;cursor:pointer;padding:6px;color:#f59e0b}
+.iconbtn.del{color:var(--rd)}
+.iconbtn .ic{margin:0;width:1.3em;height:1.3em}
+.tabs{display:flex;gap:8px;margin:12px 0}
+.tabs button{flex:1;padding:10px;border:2px solid var(--g);background:var(--item);color:var(--g);border-radius:14px;font-size:15px;font-weight:700;cursor:pointer}
+.tabs button.on{background:var(--g);color:#fff}
+.tabs button .ic{margin-right:4px}
+.hbtn,.iconbtn,.tabs button,.hist{transition:transform .15s ease,background .2s ease}
+@media (hover:hover){
+.btn:hover:not(:disabled){transform:translateY(-3px) scale(1.04);box-shadow:0 14px 30px rgba(16,185,129,.55)}
+.btn:hover:not(:disabled)::after{left:130%;transition:left .6s ease}
+.hbtn:hover{transform:scale(1.08)}
+.iconbtn:hover{transform:scale(1.25)}
+.tabs button:hover{transform:scale(1.04)}
+.hist:hover{transform:scale(1.015)}
+}
+.btn:active:not(:disabled){transform:scale(.97)}
+.hbtn:active{transform:scale(.95)}
+section:not(.hide){animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.vf{position:relative;aspect-ratio:1/1;border-radius:20px;overflow:hidden;margin-top:12px;background:#000}
+.vf video{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;margin:0;border-radius:0}
+.box{position:absolute;inset:15%;border:2px dashed rgba(255,255,255,.6);border-radius:16px;box-shadow:0 0 0 999px rgba(0,0,0,.42);transition:border-color .25s,box-shadow .25s}
+.box.ok{border:2px solid #34d399;box-shadow:0 0 0 999px rgba(0,0,0,.42),0 0 22px 4px rgba(52,211,153,.7)}
+.box i{position:absolute;width:26px;height:26px;border:4px solid #34d399}
+.box i:nth-child(1){top:-4px;left:-4px;border-right:0;border-bottom:0;border-radius:16px 0 0 0}
+.box i:nth-child(2){top:-4px;right:-4px;border-left:0;border-bottom:0;border-radius:0 16px 0 0}
+.box i:nth-child(3){bottom:-4px;left:-4px;border-right:0;border-top:0;border-radius:0 0 0 16px}
+.box i:nth-child(4){bottom:-4px;right:-4px;border-left:0;border-top:0;border-radius:0 0 16px 0}
+.vf.live .box::after{content:"";position:absolute;left:6px;right:6px;top:4px;height:3px;background:linear-gradient(90deg,transparent,#34d399,transparent);animation:sweep2 1.8s ease-in-out infinite}
+@keyframes sweep2{0%{top:4px}50%{top:calc(100% - 7px)}100%{top:4px}}
+.vhint{position:absolute;left:0;right:0;bottom:10px;text-align:center;color:#fff;font-size:13px;text-shadow:0 1px 4px #000}
+.live{margin-top:14px}
+.livecard{min-height:200px}
+.livecard .live{margin-top:0}
+@media (min-width:820px){
+main{max-width:1040px}
+main>section:not(#camera){max-width:480px;margin-left:auto;margin-right:auto}
+#camera .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+}
+.grp{margin:16px 0 4px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu)}
+.badge{display:inline-flex;align-items:center;gap:3px;margin-left:8px;padding:2px 8px;border-radius:99px;background:var(--warn);color:var(--rd);font-size:11px;font-weight:700;vertical-align:middle}
+.badge .ic{margin:0;width:1em;height:1em}
+.lvl{text-align:center;font-weight:700;margin-top:6px}
+.lvl.high{color:var(--g)}
+.lvl.med{color:#d97706}
+.hide{display:none}
+/* ---- SHARPER ---- */
+:root{--bd:rgba(5,120,85,.30);--card:rgba(255,255,255,.88)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:rgba(14,26,19,.88);--bd:rgba(52,211,153,.34)}}
+:root[data-theme="dark"]{--card:rgba(14,26,19,.88);--bd:rgba(52,211,153,.34)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+header{border-radius:14px;border:1px solid var(--bd);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 6px 20px rgba(5,150,105,.14),inset 0 1px 0 rgba(255,255,255,.35)}
+.brand{font-weight:900;letter-spacing:.2px}
+.card{border-radius:18px;border:1px solid var(--bd);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(5,150,105,.12),inset 0 1px 0 rgba(255,255,255,.4)}
+h2{font-size:24px;font-weight:900;letter-spacing:-.01em}
+.btn{border-radius:12px;letter-spacing:.02em;box-shadow:0 6px 16px rgba(16,185,129,.38),inset 0 1px 0 rgba(255,255,255,.4),inset 0 -2px 0 rgba(0,0,0,.12)}
+.row .btn{border-radius:14px}
+.hbtn{border-radius:10px;border:1px solid var(--bd)}
+.item{border-radius:8px;border-left-width:3px}
+.item b{font-size:11px;letter-spacing:.12em}
+.hist,.hist img,.tabs button{border-radius:10px}
+.hist img{border:1px solid var(--bd)}
+.badge{border-radius:6px}
+.scan,img.pv,video{border-radius:12px}
+.vf{border-radius:14px;border:1px solid var(--bd)}
+.box{border-radius:10px}
+.box i{width:30px;height:30px;border-width:3px}
+.box i:nth-child(1){top:-3px;left:-3px;border-radius:10px 0 0 0}
+.box i:nth-child(2){top:-3px;right:-3px;border-radius:0 10px 0 0}
+.box i:nth-child(3){bottom:-3px;left:-3px;border-radius:0 0 0 10px}
+.box i:nth-child(4){bottom:-3px;right:-3px;border-radius:0 0 10px 0}
+.ring span{box-shadow:inset 0 0 0 1px var(--bd)}
+.lvl{font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+/* ---- SHARPER 2 ---- */
+:root{--bd:rgba(5,120,85,.45);--card:rgba(255,255,255,.94);--tx:#06180f;--mu:#4a6256}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:rgba(10,20,15,.94);--bd:rgba(52,211,153,.5);--tx:#f0fff7}}
+:root[data-theme="dark"]{--card:rgba(10,20,15,.94);--bd:rgba(52,211,153,.5);--tx:#f0fff7}
+header{border-radius:10px;border-width:1.5px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 4px 0 rgba(5,150,105,.22)}
+.brand{text-transform:uppercase;letter-spacing:.08em;font-size:20px}
+.card{border-radius:10px;border-width:1.5px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 4px 0 rgba(5,150,105,.20),0 12px 24px rgba(5,150,105,.10)}
+h2{text-transform:uppercase;letter-spacing:.04em;font-size:22px}
+.btn{border-radius:8px;text-transform:uppercase;letter-spacing:.08em;font-size:15px;box-shadow:0 4px 0 #046c4e,0 8px 18px rgba(16,185,129,.35)}
+.btn.alt{border-radius:8px;box-shadow:0 4px 0 var(--bd)}
+.row .btn{border-radius:10px}
+@media (hover:hover){.btn:hover:not(:disabled){box-shadow:0 7px 0 #046c4e,0 14px 26px rgba(16,185,129,.45)}.btn.alt:hover:not(:disabled){box-shadow:0 7px 0 var(--bd)}}
+.btn:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 #046c4e}
+.hbtn{border-radius:6px}
+.item{border-radius:4px;border-left-width:4px}
+.item b{letter-spacing:.14em}
+.hist,.hist img,.tabs button{border-radius:6px}
+.hist img{border:2px solid var(--bd)}
+.tabs button{text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.badge{border-radius:3px;text-transform:uppercase;letter-spacing:.06em}
+.grp{letter-spacing:.16em}
+.scan,img.pv,video{border-radius:6px}
+.vf{border-radius:8px;border-width:2px}
+.box{border-radius:4px}
+.box i{width:34px;height:34px;border-width:4px}
+.box i:nth-child(1){top:-4px;left:-4px;border-radius:0}
+.box i:nth-child(2){top:-4px;right:-4px;border-radius:0}
+.box i:nth-child(3){bottom:-4px;left:-4px;border-radius:0}
+.box i:nth-child(4){bottom:-4px;right:-4px;border-radius:0}
+.ring span{box-shadow:inset 0 0 0 2px var(--bd)}
+.lvl{letter-spacing:.1em}
+.vhint{text-transform:uppercase;letter-spacing:.1em;font-size:11px}
+.lswitch{position:relative;display:inline-flex;align-items:center;width:84px;height:34px;padding:0;border:1.5px solid var(--bd);border-radius:8px;background:var(--item);color:var(--g);font:800 12px Arial,sans-serif;letter-spacing:.06em;cursor:pointer;transition:transform .15s ease}
+.lswitch span{position:relative;z-index:1;flex:1;text-align:center;transition:color .2s}
+.lswitch i{position:absolute;top:3px;left:3px;width:38px;height:24px;border-radius:5px;background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 2px 0 #046c4e;transition:transform .2s ease}
+.lswitch.tl i{transform:translateX(37px)}
+.lswitch:not(.tl) span:first-child,.lswitch.tl span:nth-child(2){color:#fff}
+.lswitch:focus-visible{outline:3px solid var(--g2);outline-offset:2px}
+@media (hover:hover){.lswitch:hover{transform:scale(1.06)}}
+.rhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.rhead h2{margin:0}
+.link{background:none;border:0;color:var(--g);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;padding:6px}
+@media (hover:hover){.link:hover{text-decoration:underline}}
+.hero{text-align:center;padding:6px 6px 22px}
+.heroic{width:84px;height:84px;margin:0 auto 16px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#059669,#10b981 55%,#84cc16);color:#fff;box-shadow:0 4px 0 #046c4e,0 14px 30px rgba(16,185,129,.38);animation:floaty 3.2s ease-in-out infinite}
+.heroic .ic{width:46px;height:46px;margin:0}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero h1{margin:0 0 8px;font-size:28px;line-height:1.15;font-weight:900;letter-spacing:-.01em;background:linear-gradient(90deg,var(--g),#84cc16);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .mu{max-width:340px;margin:0 auto}
+@media (max-width:520px){
+header{padding:10px 12px;margin:8px 8px 0}
+.brand{font-size:17px;letter-spacing:.04em;white-space:nowrap}
+.hright{gap:6px}
+.hbtn{padding:7px 9px}
+.hbtn-h{font-size:0}
+.hbtn-h .ic{width:20px;height:20px;margin:0}
+#themeBtn .ic{width:20px;height:20px}
+.lswitch{width:72px;height:32px;font-size:11px}
+.lswitch i{width:32px;height:22px}
+.lswitch.tl i{transform:translateX(34px)}
+main{padding:16px 12px 40px}
+}
+@media (max-width:350px){
+header{flex-wrap:wrap;gap:8px}
+.brand{flex:1 1 100%;text-align:center}
+.hright{margin:0 auto}
+}
+.heroic{position:relative;overflow:hidden}
+.heroic::after{content:"";position:absolute;left:12px;right:12px;top:14px;height:3px;border-radius:2px;background:rgba(255,255,255,.9);box-shadow:0 0 8px #fff;animation:hscan 2.2s ease-in-out infinite}
+@keyframes hscan{0%{top:14px}50%{top:calc(100% - 17px)}100%{top:14px}}
+.brand{text-transform:none;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand" onclick="show('home')"><span data-ic="scanleaf"></span>i-PTech MO</div>
+  <div class="hright"><button class="lswitch" id="langBtn" onclick="toggleLang()" role="switch" aria-checked="false" aria-label="Language" title="English / Tagalog"><span>EN</span><span>TL</span><i></i></button><button class="hbtn" id="themeBtn" onclick="toggleTheme()" aria-label="Change theme" title="Change theme"></button><button class="hbtn hbtn-h" onclick="openHistory()" aria-label="History"><span data-ic="hist"></span>History</button></div>
+</header>
+<main>
+  <section id="home">
+    <div class="hero">
+      <div class="heroic"><span data-ic="scanleaf"></span></div>
+      <h1>Identify your plant in seconds</h1>
+      <p class="mu">Learn its name, whether it is safe, and how often to water it.</p>
+    </div>
+    <div class="card">
+      <h2>Scan a Plant</h2>
+      <p class="mu">Take a photo or upload one to identify your plant.</p>
+      <div class="row">
+        <button class="btn" onclick="openCamera()"><span data-ic="cam"></span>Camera</button>
+        <button class="btn alt" onclick="$('up').click()"><span data-ic="up"></span>Upload</button>
+      </div>
+    </div>
+    <div class="card hide" id="recentCard">
+      <div class="rhead"><h2>Recent Scans</h2><button class="link" onclick="openHistory()">See all</button></div>
+      <div id="recentList"></div>
+    </div>
+  </section>
+
+  <section id="camera" class="hide">
+    <div class="split">
+      <div class="card">
+        <h2>Live Scan</h2>
+        <div class="vf" id="vf">
+          <video id="video" autoplay playsinline muted></video>
+          <div class="box" id="box"><i></i><i></i><i></i><i></i></div>
+          <div class="vhint">Place the plant inside the box</div>
+        </div>
+        <button class="btn" id="saveBtn" onclick="saveLive()" disabled><span data-ic="star"></span>Save to History</button>
+        <button class="btn alt" onclick="show('home')"><span data-ic="back"></span>Back to Home</button>
+      </div>
+      <div class="card livecard">
+        <div class="live" id="live"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preview" class="hide">
+    <div class="card">
+      <h2>Your Photo</h2>
+      <div class="scan" id="scanbox"><img id="pvimg" class="pv" alt="Selected plant"></div>
+      <button class="btn" id="idbtn" onclick="identify()">Identify Plant</button>
+      <button class="btn alt" onclick="show('home')">Cancel</button>
+      <div class="err" id="err"></div>
+    </div>
+  </section>
+
+  <section id="result" class="hide">
+    <div class="card">
+      <div id="resbody"></div>
+      <button class="btn" onclick="show('home')"><span data-ic="back"></span>Back to Home</button>
+    </div>
+  </section>
+
+  <section id="history" class="hide">
+    <div class="card">
+      <h2>History</h2>
+      <div class="tabs"><button id="tabAll" onclick="setFilter('all')">All</button><button id="tabFav" onclick="setFilter('fav')"><span data-ic="starfill"></span>Favorites</button></div>
+      <div id="hlist"></div>
+      <button class="btn alt" onclick="clearH()">Clear History</button>
+      <button class="btn" onclick="show('home')"><span data-ic="back"></span>Back to Home</button>
+    </div>
+  </section>
+</main>
+
+<input type="file" id="up" accept="image/*" class="hide">
+<input type="file" id="camfile" accept="image/*" capture="environment" class="hide">
+
+<script>
+const API = location.protocol === "file:" ? "http://localhost:8000" : "";
+const THRESH = 60;
+const KEY = "iptech_history";
+const VIEWS = ["home", "camera", "preview", "result", "history"];
+const $ = id => document.getElementById(id);
+let file = null, stream = null, currentUrl = "";
+const P = {
+  back: '<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  sun: '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>',
+  moon: '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>',
+  scanleaf: '<path d="M3 8V5a2 2 0 0 1 2-2h3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M21 16v3a2 2 0 0 1-2 2h-3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M8.5 15.5C8.5 11 11 8.5 15.5 8.5 15.5 13 13 15.5 8.5 15.5z"/><path d="M8.5 15.5L7 17"/><path d="M8.5 15.5L13 11"/>',
+  leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  cam: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+  up: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>',
+  hist: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><polyline points="3 3 3 8 8 8"/><polyline points="12 7 12 12 15 14"/>',
+  trash: '<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>',
+  shot: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>',
+  search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+  warn: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+  check: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+  help: '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+  sprout: '<path d="M12 21v-9"/><path d="M12 12C12 8 9 6 5 6c0 4 3 6 7 6z"/><path d="M12 14c0-3 2-5 6-5 0 3-2 5-6 5z"/>',
+  star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'
+};
+function svg(p, cls) { return '<svg class="ic' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24">' + p + '</svg>'; }
+const ICONS = {};
+Object.keys(P).forEach(k => { ICONS[k] = svg(P[k]); });
+ICONS.starfill = svg(P.star, "fill");
+const IDLABEL = ICONS.search + "Identify Plant";
+document.querySelectorAll("[data-ic]").forEach(e => { e.innerHTML = ICONS[e.dataset.ic]; });
+$("idbtn").innerHTML = IDLABEL;
+function curTheme() {
+  const t = document.documentElement.getAttribute("data-theme");
+  if (t) return t;
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+function paintThemeBtn() { $("themeBtn").innerHTML = curTheme() === "dark" ? ICONS.sun : ICONS.moon; }
+function toggleTheme() {
+  const t = curTheme() === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", t);
+  try { localStorage.setItem("iptech_theme", t); } catch (e) {}
+  paintThemeBtn();
+}
+paintThemeBtn();
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function nice(n) { return String(n).replace(/_/g, " "); }
+function stopCam() {
+  if (stream) { stream.getTracks().forEach(t => t.stop()); stream = null; }
+}
+function show(v) {
+  stopCam();
+  stopLive();
+  VIEWS.forEach(x => $(x).classList.toggle("hide", x !== v));
+  window.scrollTo(0, 0);
+  if (v === "home") renderRecent();
+}
+
+let lang = "en", lastShown = null;
+try { lang = localStorage.getItem("iptech_lang") === "tl" ? "tl" : "en"; } catch (e) {}
+const TL = {"Scan a Plant": "I-scan ang Halaman", "Take a photo or upload one to identify your plant.": "Kumuha ng larawan o mag-upload para makilala ang halaman mo.", "Go back to plants you scanned before.": "Balikan ang mga halamang na-scan mo na.", "View History": "Tingnan ang History", "Place the plant inside the box": "Ilagay ang halaman sa loob ng box", "Save to History": "I-save sa History", "Back to Home": "Bumalik sa Home", "Your Photo": "Iyong Larawan", "Identify Plant": "Kilalanin ang Halaman", "Cancel": "Kanselahin", "All": "Lahat", "Favorites": "Paborito", "Clear History": "Burahin ang History", "Identifying...": "Kinikilala...", "The image could not be read, or the model is not ready yet. Please try again.": "Hindi mabasa ang larawan, o hindi pa handa ang model. Pakisubukan ulit.", "The model could not run. Please reload the page and try again.": "Hindi mapatakbo ang model. I-reload ang page at subukan ulit.", "Plant unidentifiable": "Hindi makilala ang halaman", "This does not look like one of the plants the system knows. Try a clear, well-lit photo of the plant's leaves.": "Mukhang hindi ito isa sa mga halamang kilala ng system. Subukan ang malinaw at maliwanag na larawan ng mga dahon ng halaman.", "Confidence level": "Antas ng kumpiyansa", "Estimated height": "Tinatayang taas", "Potentially dangerous": "Posibleng mapanganib", "Generally safe": "Karaniwang ligtas", "Watering": "Pagdidilig", "Indoor / Outdoor / Backyard": "Loob / Labas / Bakuran", "Plant information": "Impormasyon ng halaman", "Not available yet for this plant.": "Wala pang impormasyon para sa halamang ito.", "The confidence level shows how sure the AI is and does not guarantee the answer is correct. Height and watering vary with the environment. In an emergency, contact a doctor or veterinarian.": "Ipinapakita ng antas ng kumpiyansa kung gaano ka-sigurado ang AI at hindi ito garantiya na tama ang sagot. Nag-iiba ang taas at pagdidilig depende sa kapaligiran. Sa emergency, makipag-ugnayan sa doktor o beterinaryo.", "Looking for a plant... point the camera at one and keep it inside the box.": "Naghahanap ng halaman... itutok ang camera sa halaman at panatilihin sa loob ng box.", "Fit one plant inside the box, move a little closer, and make sure there is enough light.": "Ilagay ang isang halaman sa loob ng box, lumapit nang kaunti, at siguraduhing may sapat na liwanag.", "Saved to History": "Na-save sa History", "Caution": "Ingat", "No favorites yet.": "Wala pang paborito.", "No scans yet.": "Wala pang na-scan.", "Today": "Ngayon", "Yesterday": "Kahapon", "Earlier": "Mas Nauna", "Delete this plant from history?": "Burahin ang halamang ito sa history?", "Clear all history?": "Burahin ang buong history?", "High confidence": "Mataas na kumpiyansa", "Medium confidence": "Katamtamang kumpiyansa", "Also possible": "Maaari rin", "Recent Scans": "Mga Kamakailang Scan", "See all": "Tingnan lahat", "Identify your plant in seconds": "Kilalanin ang halaman mo sa ilang segundo", "Learn its name, whether it is safe, and how often to water it.": "Alamin ang pangalan nito, kung ligtas ba ito, at kung gaano kadalas diligan."};
+const RX = [[/^Unable to identify confidently \((.+)%\)\. Try a clearer, well-lit photo of the whole plant\.$/, "Hindi makilala nang may kumpiyansa ($1%). Subukan ang mas malinaw at maliwanag na larawan ng buong halaman."], [/^Response time: (\d+) ms$/, "Oras ng tugon: $1 ms"]];
+const orig = new WeakMap();
+function tr(s) {
+  if (lang !== "tl") return s;
+  const k = s.trim();
+  if (TL[k] !== undefined) return s.replace(k, () => TL[k]);
+  for (const [r, v] of RX) if (r.test(k)) return s.replace(k, () => k.replace(r, v));
+  return s;
+}
+function F(i, k) { return lang === "tl" && i[k + "_tl"] ? i[k + "_tl"] : i[k]; }
+function lvl(c) { return c >= 85 ? '<div class="lvl high">High confidence</div>' : '<div class="lvl med">Medium confidence</div>'; }
+function alt(d) {
+  const t = (d.top3 || [])[1];
+  if (!t || t.confidence < 20 || String(t.plant).toLowerCase() === "unknown") return "";
+  return '<div class="item"><b>Also possible</b>' + esc(nice(t.plant)) + ' (' + t.confidence + '%)</div>';
+}
+function fix(n) {
+  if (n.parentNode && /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName)) return;
+  const cur = n.nodeValue;
+  let r = orig.get(n);
+  if (!r || cur !== r.t) r = { o: cur, t: cur };
+  const t = lang === "tl" ? tr(r.o) : r.o;
+  r.t = t;
+  orig.set(n, r);
+  if (cur !== t) n.nodeValue = t;
+}
+function walk(root) {
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  let n;
+  while ((n = w.nextNode())) fix(n);
+}
+function paintLangBtn() { const b = $("langBtn"); b.classList.toggle("tl", lang === "tl"); b.setAttribute("aria-checked", lang === "tl" ? "true" : "false"); }
+function setLang(l) {
+  lang = l;
+  try { localStorage.setItem("iptech_lang", l); } catch (e) {}
+  paintLangBtn();
+  walk(document.body);
+  if (!$("result").classList.contains("hide") && lastShown) showResult(lastShown.r, lastShown.src);
+  if (!$("history").classList.contains("hide")) openHistory();
+}
+function toggleLang() { setLang(lang === "tl" ? "en" : "tl"); }
+paintLangBtn();
+walk(document.body);
+new MutationObserver(ms => {
+  ms.forEach(m => {
+    if (m.type === "characterData") fix(m.target);
+    else m.addedNodes.forEach(nd => { if (nd.nodeType === 3) fix(nd); else if (nd.nodeType === 1) walk(nd); });
+  });
+}).observe(document.body, { childList: true, subtree: true, characterData: true });
+
+let PLANTS = {};
+function pkey(n) { return String(n).toLowerCase().replace(/[^a-z0-9]/g, ""); }
+function infoFor(r) { return PLANTS[pkey(r.plant)] || r.info || null; }
+let MODEL = null, CLASSES = [], UNK = -1;
+const UNKNOWN_LIMIT = 0.25;
+function interpret(probs) {
+  const idx = probs.map((p, i) => i).sort((a, b) => probs[b] - probs[a]);
+  const best = CLASSES[idx[0]];
+  const isUnknown = pkey(best) === "unknown" || (UNK >= 0 && probs[UNK] >= UNKNOWN_LIMIT);
+  return {
+    plant: best,
+    unknown: isUnknown,
+    confidence: Math.round(probs[idx[0]] * 1000) / 10,
+    info: isUnknown ? null : (PLANTS[pkey(best)] || null),
+    top3: idx.slice(0, 3).map(i => ({ plant: CLASSES[i], confidence: Math.round(probs[i] * 1000) / 10 }))
+  };
+}
+async function predictCanvas(cv) {
+  const t0 = performance.now();
+  const out = tf.tidy(() => MODEL.predict(tf.browser.fromPixels(cv).toFloat().div(127.5).sub(1).expandDims(0)));
+  const probs = Array.from(await out.data());
+  out.dispose();
+  const r = interpret(probs);
+  r.ms = Math.round(performance.now() - t0);
+  return r;
+}
+const READY = (async () => {
+  const info = await (await fetch("plant_info.json")).json();
+  PLANTS = {};
+  Object.keys(info).forEach(k => { PLANTS[pkey(k)] = info[k]; });
+  CLASSES = await (await fetch("class_names.json")).json();
+  UNK = CLASSES.findIndex(c => pkey(c) === "unknown");
+  renderRecent();
+  if (!$("result").classList.contains("hide") && lastShown) showResult(lastShown.r, lastShown.src);
+  if (!$("history").classList.contains("hide")) openHistory();
+  MODEL = await tf.loadLayersModel("model/model.json");
+  tf.tidy(() => { MODEL.predict(tf.zeros([1, 224, 224, 3])).dataSync(); });
+})().catch(e => { console.error(e); });
+
+function renderRecent() {
+  const h = loadH().slice(0, 3);
+  $("recentCard").classList.toggle("hide", !h.length);
+  $("recentList").innerHTML = h.map((r, i) => {
+    const inf = infoFor(r);
+    const badge = inf && inf.dangerous ? '<span class="badge">' + ICONS.warn + 'Caution</span>' : "";
+    return '<div class="hist" onclick="openItem(' + i + ')"><img src="' + esc(r.thumb) + '" alt=""><div class="t"><b>' + esc(inf ? inf.name : nice(r.plant)) + '</b>' + badge + '<div class="mu">' + r.confidence + '% · ' + esc(new Date(r.date).toLocaleDateString()) + '</div></div></div>';
+  }).join("");
+}
+renderRecent();
+
+let live = false, busy = false, lastKey = null, streak = 0, liveRec = null;
+const NEED = 2, GAP = 400;
+
+function frameCanvas(v) {
+  const S = Math.min(v.videoWidth, v.videoHeight), bs = S * 0.7;
+  const c = document.createElement("canvas");
+  c.width = 224; c.height = 224;
+  c.getContext("2d").drawImage(v, (v.videoWidth - bs) / 2, (v.videoHeight - bs) / 2, bs, bs, 0, 0, 224, 224);
+  return c;
+}
+async function fileToCanvas(f) {
+  const bmp = await createImageBitmap(f);
+  const c = document.createElement("canvas");
+  c.width = 224; c.height = 224;
+  c.getContext("2d").drawImage(bmp, 0, 0, 224, 224);
+  if (bmp.close) bmp.close();
+  return c;
+}
+function frameBlob(v) {
+  const S = Math.min(v.videoWidth, v.videoHeight), bs = S * 0.7;
+  const c = document.createElement("canvas");
+  c.width = 224; c.height = 224;
+  c.getContext("2d").drawImage(v, (v.videoWidth - bs) / 2, (v.videoHeight - bs) / 2, bs, bs, 0, 0, 224, 224);
+  return new Promise(res => c.toBlob(res, "image/jpeg", 0.85));
+}
+function infoItems(i) {
+  return '<div class="item"><b>Estimated height</b>' + esc(F(i, "height")) + '</div>'
+    + '<div class="item ' + (i.dangerous ? "warn" : "") + '"><b>' + (i.dangerous ? ICONS.warn + "Potentially dangerous" : ICONS.check + "Generally safe") + '</b>' + esc(F(i, "danger_note")) + '</div>'
+    + '<div class="item"><b>Watering</b>' + esc(F(i, "watering")) + '</div>'
+    + '<div class="item"><b>Indoor / Outdoor / Backyard</b>' + (F(i, "placement") || []).map(esc).join("<br>") + '</div>';
+}
+function liveHtml(d) {
+  const i = d.info;
+  let h = '<h2>' + esc(i ? i.name : nice(d.plant)) + '</h2>';
+  if (i) h += '<div class="sci">' + esc(i.scientific_name) + '</div>';
+  h += '<div class="ring" style="--p:' + d.confidence + '"><span>' + d.confidence + '%</span></div>' + lvl(d.confidence) + alt(d);
+  if (i) h += infoItems(i);
+  return h;
+}
+function startLive() {
+  live = true; busy = false; lastKey = null; streak = 0; liveRec = null;
+  $("saveBtn").disabled = true;
+  $("vf").classList.add("live");
+  $("box").className = "box";
+  $("live").innerHTML = '<p class="mu">Looking for a plant... point the camera at one and keep it inside the box.</p>';
+  tick();
+}
+function stopLive() {
+  live = false;
+  $("vf").classList.remove("live");
+  $("box").className = "box";
+}
+async function tick() {
+  if (!live) return;
+  const v = $("video");
+  if (v.videoWidth && !busy) {
+    busy = true;
+    try {
+      await READY;
+      if (!MODEL) throw new Error("model not ready");
+      const d = await predictCanvas(frameCanvas(v));
+      if (live) handleLive(d);
+    } catch (e) {
+      if (live) $("live").innerHTML = '<p class="err">The model could not run. Please reload the page and try again.</p>';
+    }
+    busy = false;
+  }
+  if (live) setTimeout(tick, GAP);
+}
+function handleLive(d) {
+  const ok = !d.unknown && d.confidence >= THRESH;
+  const k = ok ? d.plant : "none";
+  streak = (k === lastKey) ? streak + 1 : 1;
+  lastKey = k;
+  if (streak < NEED) return;
+  if (ok) {
+    $("box").className = "box ok";
+    liveRec = { plant: d.plant, unknown: false, confidence: d.confidence, info: d.info, top3: d.top3 };
+    $("live").innerHTML = liveHtml(d);
+    $("saveBtn").disabled = false;
+  } else {
+    $("box").className = "box";
+    liveRec = null;
+    $("saveBtn").disabled = true;
+    $("live").innerHTML = '<h2>' + ICONS.sprout + 'Plant unidentifiable</h2><p class="mu">Fit one plant inside the box, move a little closer, and make sure there is enough light.</p>';
+  }
+}
+async function saveLive() {
+  if (!liveRec) return;
+  const v = $("video");
+  if (!v.videoWidth) return;
+  const thumb = await makeThumb(await frameBlob(v));
+  saveHistory(Object.assign({}, liveRec, { thumb: thumb, date: new Date().toISOString() }));
+  const b = $("saveBtn");
+  b.innerHTML = ICONS.check + "Saved to History";
+  setTimeout(() => { b.innerHTML = ICONS.star + "Save to History"; }, 1500);
+}
+
+async function openCamera() {
+  show("camera");
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+    $("video").srcObject = stream;
+    startLive();
+  } catch (e) {
+    show("home");
+    $("camfile").click();
+  }
+}
+function capture() {
+  const v = $("video");
+  if (!v.videoWidth) return;
+  const c = document.createElement("canvas");
+  c.width = v.videoWidth; c.height = v.videoHeight;
+  c.getContext("2d").drawImage(v, 0, 0);
+  c.toBlob(b => setFile(new File([b], "capture.jpg", { type: "image/jpeg" })), "image/jpeg", 0.9);
+}
+function setFile(f) {
+  if (!f) return;
+  file = f;
+  if (currentUrl) URL.revokeObjectURL(currentUrl);
+  currentUrl = URL.createObjectURL(f);
+  $("pvimg").src = currentUrl;
+  $("err").textContent = "";
+  $("idbtn").disabled = false;
+  $("idbtn").innerHTML = IDLABEL;
+  show("preview");
+}
+$("up").onchange = e => { setFile(e.target.files[0]); e.target.value = ""; };
+$("camfile").onchange = e => { setFile(e.target.files[0]); e.target.value = ""; };
+
+function makeThumb(f) {
+  return new Promise(res => {
+    const img = new Image(), u = URL.createObjectURL(f);
+    img.onload = () => {
+      const s = Math.min(1, 240 / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      URL.revokeObjectURL(u);
+      res(c.toDataURL("image/jpeg", 0.7));
+    };
+    img.onerror = () => { URL.revokeObjectURL(u); res(""); };
+    img.src = u;
+  });
+}
+
+async function identify() {
+  const b = $("idbtn");
+  b.disabled = true; b.textContent = "Identifying..."; $("err").textContent = ""; $("scanbox").classList.add("on");
+  try {
+    await READY;
+    if (!MODEL) throw new Error("model not ready");
+    const d = await predictCanvas(await fileToCanvas(file));
+    const thumb = await makeThumb(file);
+    const rec = { plant: d.plant, unknown: !!d.unknown, confidence: d.confidence, info: d.info, top3: d.top3, ms: d.ms, thumb: thumb, date: new Date().toISOString() };
+    showResult(rec, currentUrl);
+    if (d.confidence >= THRESH && !d.unknown) saveHistory(rec);
+  } catch (e) {
+    $("err").textContent = "The image could not be read, or the model is not ready yet. Please try again.";
+  }
+  $("scanbox").classList.remove("on");
+  b.disabled = false; b.innerHTML = IDLABEL;
+}
+
+function showResult(r, src) {
+  lastShown = { r: r, src: src };
+  const i = infoFor(r), sure = r.confidence >= THRESH;
+  const unk = r.unknown || String(r.plant).toLowerCase() === "unknown";
+  let h = '<img class="pv" src="' + esc(src || r.thumb) + '" alt="">';
+  if (unk) {
+    h += '<h2 style="margin-top:14px">' + ICONS.sprout + 'Plant unidentifiable</h2><p class="mu">This does not look like one of the plants the system knows. Try a clear, well-lit photo of the plant\'s leaves.</p>';
+  } else if (!sure) {
+    h += '<h2 style="margin-top:14px">' + ICONS.help + 'Plant unidentifiable</h2><p class="mu">Unable to identify confidently (' + r.confidence + '%). Try a clearer, well-lit photo of the whole plant.</p>';
+    h += (r.top3 || []).map(t => '<div class="item"><b>' + esc(nice(t.plant)) + '</b>' + t.confidence + '%</div>').join("");
+  } else {
+    h += '<h2 style="margin-top:14px">' + esc(i ? i.name : nice(r.plant)) + '</h2>';
+    if (i) h += '<div class="sci">' + esc(i.scientific_name) + '</div>';
+    h += '<div class="item"><b>Confidence level</b><div class="ring" style="--p:' + r.confidence + '"><span>' + r.confidence + '%</span></div>' + lvl(r.confidence) + '</div>' + alt(r);
+    if (i) {
+      h += '<div class="item"><b>Estimated height</b>' + esc(F(i, "height")) + '</div>';
+      h += '<div class="item ' + (i.dangerous ? "warn" : "") + '"><b>' + (i.dangerous ? ICONS.warn + "Potentially dangerous" : ICONS.check + "Generally safe") + '</b>' + esc(F(i, "danger_note")) + '</div>';
+      h += '<div class="item"><b>Watering</b>' + esc(F(i, "watering")) + '</div>';
+      h += '<div class="item"><b>Indoor / Outdoor / Backyard</b>' + (F(i, "placement") || []).map(esc).join("<br>") + '</div>';
+    } else {
+      h += '<div class="item"><b>Plant information</b>Not available yet for this plant.</div>';
+    }
+  }
+  if (r.ms) h += '<p class="note">Response time: ' + r.ms + ' ms</p>';
+  h += '<p class="note">The confidence level shows how sure the AI is and does not guarantee the answer is correct. Height and watering vary with the environment. In an emergency, contact a doctor or veterinarian.</p>';
+  $("resbody").innerHTML = h;
+  show("result");
+}
+
+function loadH() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; }
+}
+function saveHistory(r) {
+  try {
+    const h = loadH(); h.unshift(r);
+    localStorage.setItem(KEY, JSON.stringify(h.slice(0, 30)));
+  } catch (e) {}
+}
+let histFilter = "all";
+function setFilter(f) { histFilter = f; openHistory(); }
+function writeH(h) { try { localStorage.setItem(KEY, JSON.stringify(h)); } catch (e) {} }
+function dayLabel(iso) {
+  const d = new Date(iso), n = new Date();
+  const a = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const b = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  const diff = Math.round((b - a) / 86400000);
+  return diff <= 0 ? "Today" : diff === 1 ? "Yesterday" : "Earlier";
+}
+function openHistory() {
+  const rows = loadH().map((r, i) => ({ r: r, i: i })).filter(x => histFilter === "all" || x.r.fav);
+  $("tabAll").classList.toggle("on", histFilter === "all");
+  $("tabFav").classList.toggle("on", histFilter === "fav");
+  let h = "", last = "";
+  rows.forEach(x => {
+    const g = dayLabel(x.r.date);
+    if (g !== last) { h += '<div class="grp">' + g + '</div>'; last = g; }
+    const xi = infoFor(x.r);
+    const badge = xi && xi.dangerous ? '<span class="badge">' + ICONS.warn + 'Caution</span>' : "";
+    h += '<div class="hist" onclick="openItem(' + x.i + ')"><img src="' + esc(x.r.thumb) + '" alt=""><div class="t"><b>' + esc(xi ? xi.name : nice(x.r.plant)) + '</b>' + badge + '<div class="mu">' + x.r.confidence + '% · ' + esc(new Date(x.r.date).toLocaleString()) + '</div></div><button class="iconbtn" onclick="toggleFav(' + x.i + ',event)">' + (x.r.fav ? ICONS.starfill : ICONS.star) + '</button><button class="iconbtn del" onclick="delItem(' + x.i + ',event)">' + ICONS.trash + '</button></div>';
+  });
+  $("hlist").innerHTML = h || '<p class="mu">' + (histFilter === "fav" ? "No favorites yet." : "No scans yet.") + '</p>';
+  show("history");
+}
+function toggleFav(i, ev) {
+  ev.stopPropagation();
+  const h = loadH();
+  if (h[i]) { h[i].fav = !h[i].fav; writeH(h); openHistory(); }
+}
+function delItem(i, ev) {
+  ev.stopPropagation();
+  if (!confirm(tr("Delete this plant from history?"))) return;
+  const h = loadH();
+  h.splice(i, 1); writeH(h); openHistory();
+}
+function openItem(i) {
+  const r = loadH()[i];
+  if (r) showResult(r, r.thumb);
+}
+function clearH() {
+  if (confirm(tr("Clear all history?"))) {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    openHistory();
+  }
+}
+</script>
+</body>
+</html>
